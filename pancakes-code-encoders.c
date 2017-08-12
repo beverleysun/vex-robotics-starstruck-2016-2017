@@ -140,6 +140,59 @@ task autonomous()
     motor[extraMotors] = 0;
     SensorValue[armEncoder] = 0;
     wait1Msec(500);
+    
+    //turn 90 degrees away from fence
+    while(SensorValue[wheelEncoder] < 450){
+        motor[rightBmotor] = 127;
+        motor[rightFmotor] = 127;
+        motor[leftBmotor] = -127;
+        motor[leftFmotor] = -127;
+    }
+    //clear encoder, stop driving, and wait
+    motor[rightBmotor] = 0;
+    motor[rightFmotor] = 0;
+    motor[leftBmotor] = 0;
+    motor[leftFmotor] = 0;
+    SensorValue[wheelEncoder] = 0;
+    wait1Msec(500);
+    
+    //drive backwards towards fence
+    while(SensorValue[wheelEncoder] > -550){
+        motor[rightBmotor] = -127;
+        motor[rightFmotor] = -127;
+        motor[leftBmotor] = -127;
+        motor[leftFmotor] = -127;
+    }
+    //clear encoder, stop driving, and wait
+    motor[rightBmotor] = 0;
+    motor[rightFmotor] = 0;
+    motor[leftBmotor] = 0;
+    motor[leftFmotor] = 0;
+    SensorValue[wheelEncoder] = 0;
+    wait1Msec(100);
+    
+    //lift arm all the way
+    while(SensorValue[armEncoder] > -500){
+        motor[rightArm] = 127;
+        motor[leftArm] = 127;
+        motor[extraMotors] = 127;
+    }
+    //clear encoder, stop lifting, and wait
+    motor[rightArm] = 0;
+    motor[leftArm] = 0;
+    motor[extraMotors] = 0;
+    SensorValue[armEncoder] = 0;
+    wait1Msec(200);
+    
+    //open claw to drop cube
+    while(SensorValue[clawEncoder] < 50){
+        motor[Claw] = -127;
+    }
+    //clear encoder and stop opening
+    motor[Claw] = 0;
+    SensorValue[clawEncoder] = 0;
+    
+    //auton ends
 }
 
 /*---------------------------------------------------------------------------*/
