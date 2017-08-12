@@ -61,14 +61,22 @@ void pre_auton()
 
 task autonomous()
 {
-    //drive forward
+    //drive forward towards fence
     motor[rightBmotor] = 127;
+    motor[rightFmotor] = 127;
     motor[leftBmotor] = 127;
+    motor[leftFmotor] = 127;
     wait1Msec(1600);
 
-    //close claw
+    //close claw from starting position to 180 degrees
     motor[Claw] = -127;
     wait1Msec(100);
+    
+    //lift arm to knock stars off fence
+    motor[rightArm] = 127;
+    motor[leftArm] = 127;
+    motor[extraMotors] = 127;
+    wait1Msec(1200);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -89,9 +97,13 @@ task usercontrol()
         //drive with left joystick via addition of vectors
         motor[leftBmotor]  =  vexRT[Ch3] + vexRT[Ch4];
         motor[rightBmotor] =  vexRT[Ch3] - vexRT[Ch4];
+        motor[leftFmotor]  =  vexRT[Ch3] + vexRT[Ch4];
+        motor[rightFmotor] =  vexRT[Ch3] - vexRT[Ch4];
     
-        //strafe wheel using right joystick
+        /*
+        strafe wheel using right joystick
         motor[strafe] = vexRT[Ch1];
+        */
 
         //arm motors controlled by buttons 6U and 6D
         if(vexRT[Btn6U] == 1)
@@ -99,6 +111,7 @@ task usercontrol()
             //arm up
             motor[rightArm]= 127;
             motor[leftArm]= 127;
+            motor[extraMotors]= 127;
         }
         else
         {
@@ -107,12 +120,14 @@ task usercontrol()
             {
                 motor[rightArm]= -127;
                 motor[leftArm]= -127;
+                motor[extraMotors]= -127;
             }
             else
             {
                 //stay still
                 motor[rightArm]= 0;
                 motor[leftArm]= 0;
+                motor[extraMotors]= 0;
             }
         }
 
