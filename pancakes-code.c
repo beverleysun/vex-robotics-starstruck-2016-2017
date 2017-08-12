@@ -61,14 +61,14 @@ void pre_auton()
 
 task autonomous()
 {
- motor[rightBmotor] = 127;
- motor[leftBmotor] = 127;
- wait1Msec(1600);
+    //drive forward
+    motor[rightBmotor] = 127;
+    motor[leftBmotor] = 127;
+    wait1Msec(1600);
 
- motor[Claw] = -127;
- wait1Msec(100);
-
-  AutonomousCodePlaceholderForTesting();
+    //close claw
+    motor[Claw] = -127;
+    wait1Msec(100);
 }
 
 /*---------------------------------------------------------------------------*/
