@@ -233,6 +233,18 @@ task autonomous()
     
     //all motors inactive at this point
     
+    //drive back to push cube if it balances on fence or other robot
+    motor[rightBmotor] = -127;
+    motor[rightFmotor] = -127;
+    motor[leftBmotor] = -127;
+    motor[leftFmotor] = -127;
+    
+    //drive motors stop
+    motor[rightBmotor] = 0;
+    motor[rightFmotor] = 0;
+    motor[leftBmotor] = 0;
+    motor[leftFmotor] = 0;
+    
     //auton ends
 }
 
