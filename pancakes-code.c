@@ -69,14 +69,60 @@ task autonomous()
     wait1Msec(1600);
 
     //close claw from starting position to 180 degrees
-    motor[Claw] = -127;
-    wait1Msec(100);
+    motor[Claw] = 127;
+    wait1Msec(140);
+    //stops rotation of claw
+    motor[Claw] = 0;
+    wait1Msec(110);
     
     //lift arm to knock stars off fence
     motor[rightArm] = 127;
     motor[leftArm] = 127;
     motor[extraMotors] = 127;
-    wait1Msec(1200);
+    wait1Msec(900);
+    
+    //stop drive motors
+    motor[rightBmotor] = 0;
+    motor[rightFmotor] = 0;
+    motor[leftBmotor] = 0;
+    motor[leftFmotor] = 0;
+    wait1Msec(600);
+    
+    //arm stops when fully extended
+    motor[rightArm] = 0;
+    motor[leftArm] = 0;
+    motor[extraMotors] = 0;
+    //waits for 0.8 sec to rest, make sure everything has stopped
+    wait1Msec(800);
+    
+    //all motors inactive at this point
+    
+    //drive back to middle of field
+    motor[rightBmotor] = -127;
+    motor[rightFmotor] = -127;
+    motor[leftBmotor] = -127;
+    motor[leftFmotor] = -127;
+    
+    //arm down to reach cube
+    motor[rightArm] = -127;
+    motor[leftArm] = -127;
+    motor[extraMotors] = -127;
+    wait1Msec(700);
+    
+    //stop drive motors at middle of field
+    motor[rightBmotor] = 0;
+    motor[rightFmotor] = 0;
+    motor[leftBmotor] = 0;
+    motor[leftFmotor] = 0;
+    wait1Msec(1300);
+    
+    //stop arm at bottom
+    motor[rightArm] = 0;
+    motor[leftArm] = 0;
+    motor[extraMotors] = 0;
+    wait1Msec(300);
+    
+    //all motors inactive at this point
 }
 
 /*---------------------------------------------------------------------------*/
@@ -146,8 +192,8 @@ task usercontrol()
             }
             else
             {
-                //just enough power to grip but not enough to close claw
-                motor[Claw]= -10;
+                //stay still
+                motor[Claw]= 0;
             }
         }
     }
