@@ -1,6 +1,6 @@
-## VEX Starstruck 2016-2017
+# VEX Starstruck 2016-2017
 
-# Robot Name: Pancakes
+## Robot Name: Pancakes
 
 Compiling all the code I wrote for the robot.
 
