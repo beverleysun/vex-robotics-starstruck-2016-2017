@@ -2,7 +2,7 @@
 
 ## Robot Name: Pancakes
 
-## Westlake Girls 2904C
+### Westlake Girls 2904C
 
 Compilation of all the code I wrote for our robot.
 
