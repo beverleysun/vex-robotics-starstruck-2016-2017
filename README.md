@@ -4,10 +4,11 @@
 
 ### Westlake Girls 2904C
 
-Compilation of all the code I wrote for our robot.
+Compilation of all the code I wrote for our robot.\s\s
 Combining multiple files of different versions to have one final copy of code.
 
-Team Members:  * Cynthia Liu  
+Team Members:
+  * Cynthia Liu  
   * Ashleigh Sun
   * Beverley Sun (Me)
   * Elizabeth Vaughan
