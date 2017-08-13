@@ -4,7 +4,7 @@
 
 ### Westlake Girls 2904C
 
-Compilation of all the code I wrote for our robot.\s\s
+Compilation of all the code I wrote for our robot.  
 Combining multiple files of different versions to have one final copy of code.
 
 Team Members:
@@ -13,5 +13,5 @@ Team Members:
   * Beverley Sun (Me)
   * Elizabeth Vaughan
 
-*Alternative Code is to complement other teams who also go for the cube.*
+*Alternative Code is to complement other teams who also go for the cube.*  
 *Written in RobotC*
