@@ -2,8 +2,18 @@
 
 ## Robot Name: Pancakes
 
-Compiling all the code I wrote for the robot.
+## Westlake Girls 2904C
+
+Compilation of all the code I wrote for our robot.
 
 Combining multiple files of different versions to have one final copy of code.
 
 Written in RobotC
+
+Team Members:
+  * Cynthia Liu
+  * Ashleigh Sun
+  * Beverley Sun (Me)
+  * Elizabeth Vaughan
+
+*Alternative Code is to complement other teams who also go for the cube.*
